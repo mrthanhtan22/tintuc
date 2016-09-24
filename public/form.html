@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Title Page</title>
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+		<!-- jQuery -->
+		<script src="https://code.jquery.com/jquery.js"></script>
+		<!-- Bootstrap JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+
+		
+		<link rel="stylesheet" type="text/css" href="css/datepicker.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="lib/easy-autocomplete.css">
+		
+		
+		
+		
+	</head>
+	<body>
+		
+		<div class="container-fluid" id="bg-search">
+			<div class="jumbotron text-center bg-search1">
+				 <form id="myForm" class="form-inline form-search" role="form" method="get" action="">
+				 <!-- diem di -->
+					<div class="form-group">
+					    <div class="input-group">
+					    	<div class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span></div>
+					    	<input type="text" class="form-control" id="inputDiemdi" placeholder="Điểm đi" data-toggle="modal" data-target="#noidi" style="height:50px" maxlength="5">
+						</div>
+					</div>
+				<!--end diem di -->
+					<span class="fa fa-plane"></span>
+				<!-- diem den -->
+					<div class="form-group">
+					   
+					    <div class="input-group">
+					    	<div class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span></div>
+					    	<input type="text" class="form-control" id="inputDiemden" placeholder="Điểm đến" data-toggle="modal" data-target="#noiden" style="height:50px">
+					    </div>
+					</div>
+				<!-- end diem den -->
+
+					<div class="form-group">
+						<div class="input-group">
+				    		<div class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></div>
+				    		<input type="text" name="ngaydi" id="inputNgaydi" class="form-control" placeholder="Ngày đi" required="required" title="" style="height:50px">
+				    	</div>
+					</div>
+
+					<div class="form-group">
+						<div class="input-group">
+				    		<div class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></div>
+				    		<input type="text" name="ngayve" id="inputNgayve" class="form-control" placeholder="Ngày về" required="required" title="" style="height:50px" readonly="readonly">
+						  </div>
+					</div>		
+					<div class="form-group">
+							
+							<div class="input-group">
+				    		<div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+				    		<input type="number" name="songuoi" id="inputSonguoi" class="form-control" placeholder="Số người" min="1" step="" required="required" title="songuoi" style="height:50px" data-toggle="modal" data-target="#soluong" >
+				    		<input type="hidden" name="nguoilon" id="nguoilon" class="form-control" value="">
+				    		<input type="hidden" name="treem" id="treem" class="form-control" value="">
+				    		<input type="hidden" name="tresosinh" id="tresosinh" class="form-control" value="">
+				    		
+						  </div>
+					
+						
+					</div>
+
+					<!-- 1  chieu, khu hoi -->
+					<div class="form-group">
+						<div class="container">
+
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><br>
+								<div class="radio">
+									<label class="radio-inline">
+										<input type="radio" name="choosechieu" id="khuhoi" value="khuhoi" checked="checked">
+										Khứ Hồi
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="choosechieu" id="motchieu" value="motchieu" >
+										Một Chiều
+									</label>
+									
+								</div>	
+								</div>
+							</div>
+						</div><br>
+						<button type="submit" id="search" class="btn btn-primary btn-search">
+						Tìm kiếm</button>
+					</div>
+					<!-- end khu hoi 1 chieu-->
+					
+
+						
+						
+					
+				</form>
+			</div>
+		</div>
+		<div class="container-fluid test">
+			<div class="jumbotron">
+				<a class="scrollToTop"></a>
+			</div>
+		</div>
+		
+		
+		<div  class="modal fade" id="noidi" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title"><span class="glyphicon glyphicon-map-marker"></span>Hãy chọn nơi đi</h4>
+					</div>
+					<div class="modal-body">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+									 <ul class="item-di" style="list-style-type:none;">
+					                    <li class="title-footer">Miền Bắc</li>
+					                    <li><a id="choose-noidi" href="javascript:;"><b>Hà Nội</b> (HAN)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Hải Phòng</b> (HPH)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Điện Biên</b> (DIN)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Thanh Hóa</b> (THD)</a></li>
+					                </ul>
+					                <ul class="item" style="list-style-type:none;">
+					                    <li class="title-footer">Miền Trung</li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Vinh</b> (VII)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Huế</b> (HUI)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Đồng Hới</b> (VDH)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Đà Nẵng</b> (DAD)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Pleiku</b> (PXU)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Tuy Hòa</b> (TBB)</a></li>
+					                </ul>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+									 <ul class="item" style="list-style-type:none;margin-bottom: 20px">
+					                    <li class="title-footer">Miền Nam</li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Hồ Chí Minh</b> (SGN)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Nha Trang</b> (CXR)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Đà Lạt</b> (DLI)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Phú Quốc</b> (PQC)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Tam Kỳ</b> (VCL)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Qui Nhơn</b> (UIH)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Cần Thơ</b> (VCA)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Côn Đảo</b> (VCS)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Ban Mê Thuột</b> (BMV)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Rạch Giá</b> (VKG)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Cà Mau</b> (CAH)</a></li>
+					                </ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Save changes</button>
+					</div>
+				</div>
+			</div>
+		</div> <!-- moldal noi di -->
+		<div  class="modal fade" id="noiden" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title"><span class="glyphicon glyphicon-map-marker"></span>Hãy chọn nơi đến</h4>
+					</div>
+					<div class="modal-body">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+									<div class="row">
+										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+											<h3 class="title-footer"><strong>Sân bay quốc tế đến</strong></h3>
+									
+										</div>
+										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-left">
+											<input type="text" name="" id="modaldsanbay" class="form-control" value="" required="required" title="">
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+									 <ul class="item" style="list-style-type:none;">
+					                    <li class="title-footer">Miền Bắc</li>
+					                    <li><a href="javascript:;"><b>Hà Nội</b> (HAN)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Hải Phòng</b> (HPH)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Điện Biên</b> (DIN)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Thanh Hóa</b> (THD)</a></li>
+					                </ul>
+					                <ul class="item" style="list-style-type:none;">
+					                    <li class="title-footer">Miền Trung</li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Vinh</b> (VII)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Huế</b> (HUI)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Đồng Hới</b> (VDH)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Đà Nẵng</b> (DAD)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Pleiku</b> (PXU)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Tuy Hòa</b> (TBB)</a></li>
+					                </ul>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+									 <ul class="item" style="list-style-type:none;margin-bottom: 20px">
+					                    <li class="title-footer">Miền Nam</li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Hồ Chí Minh</b> (SGN)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Nha Trang</b> (CXR)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Đà Lạt</b> (DLI)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Phú Quốc</b> (PQC)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Tam Kỳ</b> (VCL)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Qui Nhơn</b> (UIH)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Cần Thơ</b> (VCA)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Côn Đảo</b> (VCS)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Ban Mê Thuột</b> (BMV)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Rạch Giá</b> (VKG)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Cà Mau</b> (CAH)</a></li>
+					                </ul>
+
+								</div>
+								
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" id="" class="btn btn-primary">Save changes</button>
+					</div>
+				</div>
+			</div>
+		</div> <!--modal noi den -->
+
+		<div class="modal fade" id="soluong">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title">Số hành khách</h4>
+					</div>
+					<div class="modal-body">
+						<form action="" method="POST" class="form-inline" role="form">
+							<div class="form-group">
+							<div class="row">
+								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+								<b><h5>Người lớn(> 11t ) </h5></b>
+								<div class="input-group">
+									<div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+									<input type="number" name="" id="inputNguoilon" class="form-control" value="1" min="1" max="" step="" required="required" title="" placeholder="Người lớn(>12t)">
+								</div>
+								</div>
+								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+								<b><h5>Trẻ em(2t - 11t) </h5></b>
+								<div class="input-group">
+									<div class="input-group-addon"><span class=" glyphicon glyphicon-user"></span></div>
+									<input type="number" name="" id="inputTreem" class="form-control" value="0" min="0" step="" required="required" title="" placeholder="Trẻ em (2-11t)">
+								</div>
+								</div>
+								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+								<b><h5>Trẻ sơ sinh(< 2t) </h5></b>
+								<div class="input-group">
+									<div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+									<input type="number" name="" id="inputTresosinh" class="form-control" value="0" min="0" step="" required="required" title="" placeholder="Trẻ sơ sinh(<2t)">
+								</div>
+								</div>
+							</div>
+							
+							
+							
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" onclick="hanhkhach()">Xong</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script src="js/bootstrap-datepicker.js"></script>
+		<script src="lib/jquery.easy-autocomplete.js"></script>
+ 		<script>
+ 			$(document).ready(function() {
+ 				$('#inputNgaydi').datepicker({
+ 					format: "dd-mm-yyyy"
+ 				});
+ 				$('#inputNgayve').datepicker({
+ 					format: "dd-mm-yyyy"
+ 				});
+ 			});
+ 		</script>
+ 		<script>
+ 			var options = {
+ 				url: "json/sanbay.json",
+
+				getValue: "label",
+
+				list: {
+					maxNumberOfElements: 5,
+					match: {
+							enabled: true
+						},
+					showAnimation: {
+						type: "fade", 
+						time: 400,
+						callback: function() {}
+					},
+
+					hideAnimation: {
+						type: "slide", 
+						time: 400,
+						callback: function() {}
+					},
+					onSelectItemEvent: function() {
+					var value = $("#modaldsanbay").getSelectedItemData().label;
+
+					$("#inputDiemden").val(value).trigger("change");
+						}
+				}
+			};
+ 			$("#modaldsanbay").easyAutocomplete(options);
+ 		</script> 
+ 		<script>
+ 			$("#noidi a[href='javascript:;']").one('click', function() {
+ 				var value = $(this).text();
+ 				$('#inputDiemdi').val(value);
+ 				 $('#noidi').modal('toggle');
+ 				
+ 			});
+ 			$("#noiden a[href='javascript:;']").one('click', function() {
+ 				var value = $(this).text();
+ 				 $('#inputDiemden').val(value);
+ 				  $('#noiden').modal('toggle');
+ 			});		
+ 				
+ 		</script>
+ 		<script>
+ 		
+ 			function hanhkhach() {
+ 			var _nguoilon = $('#inputNguoilon').val();
+ 			var _treem	= $('#inputTreem').val();
+ 			var _tresosinh = $('#inputTresosinh').val();
+ 			num1 = parseInt(_nguoilon);
+ 			num2 = parseInt(_treem);
+ 			num3 = parseInt(_tresosinh);
+ 			 var tong = num1 + num2 + num3;
+ 			 var tong_tresosinh = num1 + num2;
+ 			 $('#nguoilon').val(_nguoilon);
+ 			 $('#treem').val(_tresosinh);
+ 			 $('#tresosinh').val(_tresosinh);
+ 			 $('#inputSonguoi').val(tong);
+ 			 if (num3 > tong_tresosinh) {
+ 			 	alert("Số trẻ sơ sinh vượt quá mức cho phép");
+ 			 	return false;
+ 			 } else {
+ 			 	 $('#soluong').modal('toggle');
+
+ 			 }
+ 			}
+ 			
+ 		</script>
+ 		<script>
+			$('input[value="motchieu"]:radio').change(function() {
+				$('#inputNgayve').hide();
+			});
+			$('input[value="khuhoi"]:radio').change(function() {
+				$('#inputNgayve').show();
+			});
+ 		</script>
+ 		<script>
+ 			$(document).ready(function() {
+ 				$(window).scroll(function(){
+ 					if ($(this).scrollTop() > 100) {
+ 						$('#bg-search').addClass('fixed');
+ 					} else{
+ 						$('#bg-search').removeClass('fixed');
+ 					}
+ 				})
+ 			});
+ 		</script>
+ 		<script>
+ 			$(document).ready(function() {
+ 				 $(window).scroll(function() {
+        if ($(this).scrollTop() > 100) {
+          $('.scrollToTop').fadeIn();
+        } else{
+          $('.scrollToTop').fadeOut();
+        }
+      });
+      $('.scrollToTop').click(function() {
+        $('html,body').animate({scrollTop: 0}, 800);
+        return false;
+      });
+ 			});
+ 		</script>
+	</body>
+</html>

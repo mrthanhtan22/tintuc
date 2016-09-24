@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>GlobalFlight:. đại lý vé máy bay tại tp.Hồ Chí Minh</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.min.css">
+	<script src="jquery/jquery.js"></script>
+	<script src="bootstrap/bootstrap.min.js"></script>
+	
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="lib/jquery.bxslider.css">
+	<script src="lib/jquery.bxslider.js"></script>
+	<script src="lib/jquery.bxslider.min.js"></script>
+	<link rel="shortcut icon" href="images/favicon.png" />
+	<link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="css/datepicker.css">
+	<link rel="stylesheet" type="text/css" href="lib/easy-autocomplete.css">
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+	<!--header -->
+
+	<!-- nav menu -->
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+			    <span class="icon-bar"></span>
+			    <span class="icon-bar"></span>
+			    <span class="icon-bar"></span>
+			  </button>
+			  <a class="navbar-brand" href="#">Logo</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+			  <ul class="nav navbar-nav navbar-right">
+			   
+			    <li><a href="#datve">ĐẶT VÉ</a></li>
+			    <li><a href="#khuyenmai">KHUYẾN MÃI</a></li>
+			    <li><a href="#thongtin">THÔNG TIN</a></li>
+			    <li><a href="#gioithieu">GIỚI THIỆU</a></li>
+			    <li><a href="#lienhe">LIÊN HỆ</a></li>
+			  </ul>
+			</div>
+		</div>
+	</nav>
+	<!--ket thuc -->
+	
+	<div class="master-wrapper-page">
+		<div class="wrapper-home-banner flight">
+			<div class="container-fluid khoangcach" id="khoangcach">
+		
+			</div>
+			<!---Form Search -->
+		
+			<div class="jumbotron text-center bg-search1" id="bg-search">
+				 <form id="myForm" class="form-inline form-search" role="form" method="get" action="">
+				 <!-- diem di -->
+					<div class="form-group">
+					    <div class="input-group">
+					    	<div class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span></div>
+					    	<input type="text" class="form-control" id="inputDiemdi" placeholder="Điểm đi" data-toggle="modal" data-target="#noidi" style="height:50px" maxlength="5">
+						</div>
+					</div>
+				<!--end diem di -->
+					<span class="fa fa-plane"></span>
+				<!-- diem den -->
+					<div class="form-group">
+					   
+					    <div class="input-group">
+					    	<div class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span></div>
+					    	<input type="text" class="form-control" id="inputDiemden" placeholder="Điểm đến" data-toggle="modal" data-target="#noiden" style="height:50px">
+					    </div>
+					</div>
+				<!-- end diem den -->
+
+					<div class="form-group">
+						<div class="input-group">
+				    		<div class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></div>
+				    		<input type="text" name="ngaydi" id="inputNgaydi" class="form-control" placeholder="Ngày đi" required="required" title="" style="height:50px">
+				    	</div>
+					</div>
+
+					<div class="form-group">
+						<div class="input-group">
+				    		<div class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></div>
+				    		<input type="text" name="ngayve" id="inputNgayve" class="form-control" placeholder="Ngày về" required="required" title="" style="height:50px" readonly="readonly">
+						  </div>
+					</div>		
+					<div class="form-group">
+							
+							<div class="input-group">
+				    		<div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+				    		<input type="number" name="songuoi" id="inputSonguoi" class="form-control" placeholder="Số người" min="1" step="" required="required" title="songuoi" style="height:50px" data-toggle="modal" data-target="#soluong" >
+				    		<input type="hidden" name="nguoilon" id="nguoilon" class="form-control" value="">
+				    		<input type="hidden" name="treem" id="treem" class="form-control" value="">
+				    		<input type="hidden" name="tresosinh" id="tresosinh" class="form-control" value="">
+				    		
+						  </div>
+					
+						
+					</div>
+
+					<!-- 1  chieu, khu hoi -->
+					<div class="form-group">
+						<div class="container">
+
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><br>
+								<div class="radio">
+									<label class="radio-inline">
+										<input type="radio" name="choosechieu" id="khuhoi" value="khuhoi" checked="checked">
+										Khứ Hồi
+									</label>
+									<label class="radio-inline">
+										<input type="radio" name="choosechieu" id="motchieu" value="motchieu" >
+										Một Chiều
+									</label>
+									
+								</div>	
+								</div>
+							</div>
+						</div><br>
+						<button type="submit" id="search" class="btn btn-primary btn-search">
+						Tìm kiếm</button>
+					</div>
+					<!-- end khu hoi 1 chieu-->
+					
+
+						
+						
+					
+				</form>
+			</div>
+		
+		
+		
+		
+		<div  class="modal fade" id="noidi" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title"><span class="glyphicon glyphicon-map-marker"></span>Hãy chọn nơi đi</h4>
+					</div>
+					<div class="modal-body">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+									 <ul class="item-di" style="list-style-type:none;">
+					                    <li class="title-footer">Miền Bắc</li>
+					                    <li><a id="choose-noidi" href="javascript:;"><b>Hà Nội</b> (HAN)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Hải Phòng</b> (HPH)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Điện Biên</b> (DIN)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Thanh Hóa</b> (THD)</a></li>
+					                </ul>
+					                <ul class="item" style="list-style-type:none;">
+					                    <li class="title-footer">Miền Trung</li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Vinh</b> (VII)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Huế</b> (HUI)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Đồng Hới</b> (VDH)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Đà Nẵng</b> (DAD)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Pleiku</b> (PXU)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Tuy Hòa</b> (TBB)</a></li>
+					                </ul>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+									 <ul class="item" style="list-style-type:none;margin-bottom: 20px">
+					                    <li class="title-footer">Miền Nam</li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Hồ Chí Minh</b> (SGN)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Nha Trang</b> (CXR)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Đà Lạt</b> (DLI)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Phú Quốc</b> (PQC)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Tam Kỳ</b> (VCL)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Qui Nhơn</b> (UIH)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Cần Thơ</b> (VCA)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Côn Đảo</b> (VCS)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Ban Mê Thuột</b> (BMV)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Rạch Giá</b> (VKG)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Cà Mau</b> (CAH)</a></li>
+					                </ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						
+					</div>
+				</div>
+			</div>
+		</div> <!-- end moldal noi di -->
+		<div  class="modal fade" id="noiden" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title"><span class="glyphicon glyphicon-map-marker"></span>Hãy chọn nơi đến</h4>
+					</div>
+					<div class="modal-body">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+									<div class="row">
+										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+											<h3 class="title-footer"><strong>Sân bay quốc tế đến</strong></h3>
+									
+										</div>
+										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-left">
+											<input type="text" name="" id="modaldsanbay" class="form-control" value="" required="required" title="">
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+									 <ul class="item" style="list-style-type:none;">
+					                    <li class="title-footer">Miền Bắc</li>
+					                    <li><a href="javascript:;"><b>Hà Nội</b> (HAN)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Hải Phòng</b> (HPH)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Điện Biên</b> (DIN)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Thanh Hóa</b> (THD)</a></li>
+					                </ul>
+					                <ul class="item" style="list-style-type:none;">
+					                    <li class="title-footer">Miền Trung</li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Vinh</b> (VII)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Huế</b> (HUI)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Đồng Hới</b> (VDH)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Đà Nẵng</b> (DAD)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Pleiku</b> (PXU)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Tuy Hòa</b> (TBB)</a></li>
+					                </ul>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+									 <ul class="item" style="list-style-type:none;margin-bottom: 20px">
+					                    <li class="title-footer">Miền Nam</li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Hồ Chí Minh</b> (SGN)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Nha Trang</b> (CXR)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Đà Lạt</b> (DLI)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Phú Quốc</b> (PQC)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Tam Kỳ</b> (VCL)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Qui Nhơn</b> (UIH)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Cần Thơ</b> (VCA)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Côn Đảo</b> (VCS)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Ban Mê Thuột</b> (BMV)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Rạch Giá</b> (VKG)</a></li>
+					                    <li><a href="javascript:;" rel="nofollow"><b>Cà Mau</b> (CAH)</a></li>
+					                </ul>
+
+								</div>
+								
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" id="" class="btn btn-primary" onclick="xong()">Xong</button>
+					</div>
+				</div>
+			</div>
+		</div> <!-- end modal noi den -->
+
+		<div class="modal fade" id="soluong">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title">Số hành khách</h4>
+					</div>
+					<div class="modal-body">
+						<form action="" method="POST" class="form-inline" role="form">
+							<div class="form-group">
+							<div class="row">
+								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+								<b><h5>Người lớn(> 11t ) </h5></b>
+								<div class="input-group">
+									<div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+									<input type="number" name="" id="inputNguoilon" class="form-control" value="1" min="1" max="" step="" required="required" title="" placeholder="Người lớn(>12t)">
+								</div>
+								</div>
+								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+								<b><h5>Trẻ em(2t - 11t) </h5></b>
+								<div class="input-group">
+									<div class="input-group-addon"><span class=" glyphicon glyphicon-user"></span></div>
+									<input type="number" name="" id="inputTreem" class="form-control" value="0" min="0" step="" required="required" title="" placeholder="Trẻ em (2-11t)">
+								</div>
+								</div>
+								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+								<b><h5>Trẻ sơ sinh( < 2t) </h5></b>
+								<div class="input-group">
+									<div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+									<input type="number" name="" id="inputTresosinh" class="form-control" value="0" min="0" step="" required="required" title="" placeholder="Trẻ sơ sinh(<2t)">
+								</div>
+								</div>
+							</div>
+							
+							
+							
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" onclick="hanhkhach()">Xong</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+ 			
+	<!-- ket thuc form search -->
+
+		</div>
+		
+	</div> 
+
+		
+	
+
+	<!--end header-->
+	<!--Ve may bay khuyen mai -->
+	<div id="datve" class="container">
+		<h2><strong>VÉ MÁY BAY KHUYẾN MÃI</strong></h2>
+		<b class="pull-right"><a href="">Xem tất cả</a></b><br>
+		<div class="col-md-12 bxslider1">
+				
+				<div class="row bg bxslide">
+					<div class="col-sm-4 pull-left">
+						<p><span class="glyphicon glyphicon-send icon"></span></p>
+						<p class="diemdi"><strong>Hà Nội</strong></p>
+						<p><i>Đểm đi</i></p>
+						
+					</div>
+					<div class="col-sm-2 text-center">
+						<p class="muiten"><img src="images/muiten.gif"></p>
+					</div>
+					<div class="col-sm-4">
+						<p><span class="glyphicon glyphicon-plane icon"></span></p>
+						<p class="diemden"><strong>Phu Quoc</strong></p>
+						<p><i>Điểm đến</i></p>
+					</div>
+					<div class="col-sm-2 pull-right">
+						<img src="images/vietjet.gif">
+						<p class="pice"><strong>1.890.000đ</strong></p>
+					</div>
+				</div>
+				<div class="row bg bxslide">
+					<div class="col-sm-4 pull-left">
+						<p><span class="glyphicon glyphicon-send icon"></span></p>
+						<p class="diemdi"><strong>Hà Nội</strong></p>
+						<p><i>Đểm đi</i></p>
+						
+					</div>
+					<div class="col-sm-2 text-center">
+						<p class="muiten"><img src="images/muiten.gif"></p>
+					</div>
+					<div class="col-sm-4">
+						<p><span class="glyphicon glyphicon-plane icon"></span></p>
+						<p class="diemden"><strong>Ho Chi Minh</strong></p>
+						<p><i>Điểm đến</i></p>
+					</div>
+					<div class="col-sm-2 pull-right">
+						<img src="images/vietnamairline.gif">
+						<p class="pice"><strong>1.200.000đ</strong></p>
+					</div>
+				</div>
+				<div class="row bg bxslide">
+					<div class="col-sm-4 pull-left">
+						<p><span class="glyphicon glyphicon-send icon"></span></p>
+						<p class="diemdi"><strong>Hà Nội</strong></p>
+						<p><i>Đểm đi</i></p>
+						
+					</div>
+					<div class="col-sm-2 text-center">
+						<p class="muiten"><img src="images/muiten.gif"></p>
+					</div>
+					<div class="col-sm-4">
+						<p><span class="glyphicon glyphicon-plane icon"></span></p>
+						<p class="diemden"><strong>Phú Yên</strong></p>
+						<p><i>Điểm đến</i></p>
+					</div>
+					<div class="col-sm-2 pull-right">
+						<img src="images/vietnamairline.gif">
+						<p class="pice"><strong>900.000đ</strong></p>
+					</div>
+				</div>
+				<div class="row bg bxslide">
+					<div class="col-sm-4 pull-left">
+						<p><span class="glyphicon glyphicon-send icon"></span></p>
+						<p class="diemdi"><strong>Hà Nội</strong></p>
+						<p><i>Đểm đi</i></p>
+						
+					</div>
+					<div class="col-sm-2 text-center">
+						<p class="muiten"><img src="images/muiten.gif"></p>
+					</div>
+					<div class="col-sm-4">
+						<p><span class="glyphicon glyphicon-plane icon"></span></p>
+						<p class="diemden"><strong>Hải phòng</strong></p>
+						<p><i>Điểm đến</i></p>
+					</div>
+					<div class="col-sm-2 pull-right">
+						<img src="images/vietjet.gif">
+						<p class="pice"><strong>1.000.000đ</strong></p>
+					</div>
+				</div>
+				<div class="row bg bxslide">
+					<div class="col-sm-4 pull-left">
+						<p><span class="glyphicon glyphicon-send icon"></span></p>
+						<p class="diemdi"><strong>Hà Nội</strong></p>
+						<p><i>Đểm đi</i></p>
+						
+					</div>
+					<div class="col-sm-2 text-center">
+						<p class="muiten"><img src="images/muiten.gif"></p>
+					</div>
+					<div class="col-sm-4">
+						<p><span class="glyphicon glyphicon-plane icon"></span></p>
+						<p class="diemden"><strong>Ho Chi Minh</strong></p>
+						<p><i>Điểm đến</i></p>
+					</div>
+					<div class="col-sm-2 pull-right">
+						<img src="images/jesta.gif">
+						<p class="pice"><strong>1.890.000đ</strong></p>
+					</div>
+				</div>
+	
+			</div>
+	</div>
+	<!--end ve khuyen mai -->
+	<!--khuyen mai va dich vu -->
+	<div id="khuyenmai" class="container">
+		<div class="row">
+			<div class="col-sm-6">
+				<h2><strong>KHUYẾN MÃI</strong></h2>
+				<b class="pull-right"><a href="">Xem tất cả</a></b>
+			
+				<div id="khuyenmai" class="carousel slide" data-ride="carousel">
+					<ol class="carousel-indicators">
+						<li data-target="#khuyenmai" data-slide-to="0" class=""></li>
+						<li data-target="#khuyenmai" data-slide-to="1" class="active"></li>
+					</ol>
+					<div class="carousel-inner">
+						<div class="item">
+							<img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" alt="First slide" src="images/trongoi.jpeg">
+						</div>
+						<div class="item active">
+							<img data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" alt="Third slide" src="images/jesta.jpeg">
+							
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			<!-- dich vu khach hang -->
+			<div class="col-sm-6">
+				<h2><strong>DỊCH VỤ KHÁCH HÀNG</strong></h2>
+				<b class="pull-right"><strong><a href="">Giới thiệu công ty</a></strong></b>
+				<div class="panel panel-default choose">
+					<div class="panel-body">
+						<div class="row">
+								<div class="row">
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+										<span class="fa fa-motorcycle choose-icon" ></span>
+									</div>
+									<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+										<h2 class="choose-text chon">Sự hài lòng của khách hàng</h2>
+										<p class="choose-text choose-text-p">Đội ngũ nhân viên tư vấn nhiệt tình – phản hồi nhanh chóng – tác phong chuyên nghiệp.</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+										<span class="fa fa-money choose-icon" ></span>
+									</div>
+									<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+										<h2 class="choose-text chon">Cam kết giá vé tốt nhất.</h2>
+										<p class="choose-text choose-text-p">Công ty sẽ cung cấp cho khách hàng giá vé tốt nhất cho khách hàng.</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+										<span class="fa fa-motorcycle choose-icon" ></span>
+									</div>
+									<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+										<h2 class="choose-text chon">Giao vé tận nơi miễn phí</h2>
+										<p class="choose-text choose-text-p">Công ty hỗ trợ giao vé tận nơi miễn phí trong nội ô tp.Hồ Chí Minh.</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+										 <span class="material-icons choose-icon">people</span>
+									</div>
+									<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+										<h2 class="choose-text chon">Đối tác hàng không uy tín.</h2>
+										<p class="choose-text choose-text-p">Đại lý cấp 1 của Vietjet Air, Jetstar Pacific và các hãng hàng không khác, Bookin mang đến mức giá ưu đãi dành cho khách hàng.</p>
+									</div>
+								</div>
+							
+								
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--ket thuc dich vu-->
+		</div>		
+	</div>
+	<!--dich vu-->
+	<div id="thongtin" class="container bg-grey">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<h3><strong>VÉ MÁY BAY QUỐC NỘI</strong></h3>
+				<div class="slide2">
+					<div class="slide"><span class="noidia text-center"><strong>Đà Lạt</strong></span><img src="images/dalat.jpeg"></div>
+					<div class="slide"><strong class="noidia text-center">Hà Nội</strong><img src="images/hanoi.jpeg"></div>
+					<div class="slide"><strong class="noidia text-center">Phú Quốc</strong><img src="images/phuquoc.jpeg"></div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<h3><strong>VÉ MÁY BAY QUỐC TẾ</strong></h3>
+				<div class="slide2">
+					<div class="slide"><span class="noidia text-center"><strong>My</strong></span><img src="images/my.jpeg"></div>
+					<div class="slide"><strong class="noidia text-center">Singapore</strong><img src="images/singapore.jpeg"></div>
+					<div class="slide"><strong class="noidia text-center">Thai Land</strong><img src="images/thailan.jpeg"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--end khuyen mai- dich vu -->
+	<!--nhan mail khuyen mai-->
+	<div class="container-fluid text-center nhanmail">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<form action="" method="POST" role="form" class="form-inline">
+					
+					<div class="form-group">
+						<label><strong>Đăng kí để nhận ưu đãi từ GlobalFlight</strong></label>
+						<input type="text" class="form-control mail" id="" placeholder="Email Adress">
+					</div>
+					<button type="submit" class="btn btn-primary submit">Đăng kí ngay</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- end nhan mail-->
+	<!--footer-->
+	
+		<footer id="lienhe" class="footer"  role="contentinfo">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3">
+					<img src="images/favicon.png" class="footer-logo">
+					<ul class="item2" style="list-style-type:none;" >
+						<li><a href="">Liên hệ</a></li>
+						<li><a href="">Chính sách bảo mật</a></li>
+						<li><a href="">Luôn cam kết giá rẻ</a></li>
+						<li><a href="">Liên hệ quảng cáo với chúng tôi</a></li>
+					</ul>
+				</div>
+				<div class="col-sm-3 footer-cot2">
+					<ul class="item1" style="list-style-type:none;">
+						<li><a href=""> Về chúng tôi</a></li>
+						<li><a href=""> Điều lệ sử dụng</a></li>
+						<li><a href=""> Các điều kiện và điều khoản</a></li>
+						<li><a href=""> Điều lệ vận hành</a></li>
+					</ul>
+						
+				</div>
+				<div class="col-sm-3">
+					<h3>Nhận ứng dụng GlobalFlight</h3>
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<img class="app-footer" src="images/appstore.png">
+						</div><br><br><br>
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<img class="app-footer" src="images/googleplay.png">
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-3">
+					<h3>Theo dõi chúng tôi</h3>
+					<div class="row">
+							<div class="col-sm-3 icon-footer"><span class="fa fa-facebook-official"></span></div>
+							<div class="col-sm-3 icon-footer"><span class="fa fa-skype"></span></div>
+							<div class="col-sm-3 icon-footer"><span class="fa fa-twitter"></span></div>
+							<div class="col-sm-3 icon-footer"><span class="fa fa-youtube-square"></span></div>
+						
+					</div>
+				</div>
+			</div>
+			
+			<div class="row text-center">
+				 <a href="#myPage" title="To Top" class="scrollToTop">
+					
+				</a>
+  				<p>Bootstrap Theme Made By ThanhTan<a href="http://www.globalflight.com.vn" title="Visit w3schools">http://globallight.com.vn</a></p>
+			</div>
+		</div>
+	</footer>
+	
+	
+	<!-- end footer-->
+	<script src="js/function.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+		<script src="lib/jquery.easy-autocomplete.js"></script>
+		<script>
+			function hanhkhach() {
+      var _nguoilon = $('#inputNguoilon').val();
+      var _treem  = $('#inputTreem').val();
+      var _tresosinh = $('#inputTresosinh').val();
+      num1 = parseInt(_nguoilon);
+      num2 = parseInt(_treem);
+      num3 = parseInt(_tresosinh);
+       var tong = num1 + num2 + num3;
+       var tong_tresosinh = num1 + num2;
+       $('#nguoilon').val(_nguoilon);
+       $('#treem').val(_tresosinh);
+       $('#tresosinh').val(_tresosinh);
+       $('#inputSonguoi').val(tong);
+       if (num3 > tong_tresosinh) {
+        alert("Số trẻ sơ sinh vượt quá mức cho phép");
+        return false;
+       } else {
+         $('#soluong').modal('toggle');
+
+       }
+      }
+		
+		function xong(){
+			$('#noiden').modal('toggle');
+		}
+			
+				 
+			
+		</script>
+
+	
+</body>
+</html>
